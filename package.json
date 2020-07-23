@@ -1,0 +1,25 @@
+{
+    "name": "datautils_way",
+    "version": "1.0.1",
+    "description": "js常用方法库",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BalotT/dataUtils_way.git"
+    },
+    "keywords": [
+        "data",
+        "js",
+        "method",
+        "dataUtils"
+    ],
+    "author": "leijiaxin",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/BalotT/dataUtils_way/issues"
+    },
+    "homepage": "https://github.com/BalotT/dataUtils_way#readme"
+}
