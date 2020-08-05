@@ -197,5 +197,22 @@ export default {
      */
     prefixInteger(num, n) {
         return (Array(n).join(0) + num).slice(-n);
+    },
+    /**
+     * 冒泡排序
+     * @param data
+     * @param reverse false为从小到大 true为从大到校
+     * @returns {*[]}
+     */
+    bubbleSort(data=[], reverse = false) {
+        let length = data.length;
+        for (let i = 0; i < length - 1; i++) {
+            for (let j = 0; j < length - 1 - i; j++) {
+                if (data[j] > data[j + 1]) {
+                    [data[j], data[j + 1]] = [data[j + 1], data[j]]
+                }
+            }
+        }
+        return reverse ? data.reverse() : data
     }
 }
