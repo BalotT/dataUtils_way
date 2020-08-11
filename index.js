@@ -204,7 +204,7 @@ export default {
      * @param reverse false为从小到大 true为从大到校
      * @returns {*[]}
      */
-    bubbleSort(data=[], reverse = false) {
+    bubbleSort(data = [], reverse = false) {
         let length = data.length;
         for (let i = 0; i < length - 1; i++) {
             for (let j = 0; j < length - 1 - i; j++) {
@@ -214,5 +214,19 @@ export default {
             }
         }
         return reverse ? data.reverse() : data
-    }
+    },
+    /**
+     * 随机生成数字字母
+     * @param len  默认16位数
+     * @returns {string}
+     */
+    randomString(len = 16) {
+        let chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+        let maxPos = chars.length;
+        let pwd = '';
+        for (let i = 0; i < len; i++) {
+            pwd += chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return pwd;
+    },
 }
