@@ -199,7 +199,7 @@ export default {
         return (Array(n).join(0) + num).slice(-n);
     },
     /**
-     * 冒泡排序
+     * 冒泡排序 数组里面每项是数字
      * @param data
      * @param reverse false为从小到大 true为从大到校
      * @returns {*[]}
@@ -229,4 +229,62 @@ export default {
         }
         return pwd;
     },
+    /**
+     * 判断两个数组是否值一致
+     * @param arr
+     * @param newArr
+     * @returns {boolean}
+     */
+    isSameArr(arr, newArr) {
+        let bol = true;
+        if (arr.length !== newArr.length) {
+            return false;
+        }
+        for (let i = 0, n = arr.length; i < n; i++) {
+            if (arr[i] instanceof Array) {
+                bol = this.isSameArr(arr[i], newArr[i]);
+                if (!bol) {
+                    break;
+                }
+            } else if (arr[i] instanceof Object) {
+                bol = this.isSameObj(arr[i], newArr[i]);
+                if (!bol) {
+                    break;
+                }
+            } else if (arr[i] !== newArr[i]) {
+                bol = false;
+                break;
+            }
+        }
+        return bol;
+    },
+    /**
+     * 判断两个对象是否一致一致
+     * @param obj
+     * @param newObj
+     * @returns {boolean}
+     */
+    isSameObj(obj, newObj) {
+        let bol = true;
+        if (Object.keys(obj).length !== Object.keys(newObj).length) {
+            return false;
+        }
+        for (let key in obj) {
+            if (obj[key] instanceof Object) {
+                bol = this.isSameObj(obj[key], newObj[key]);
+                if (!bol) {
+                    break;
+                }
+            } else if (obj[key] instanceof Array) {
+                bol = this.isSameArr(obj[key], newObj[key]);
+                if (!bol) {
+                    break;
+                }
+            } else if (obj[key] !== newObj[key]) {
+                bol = false;
+                break;
+            }
+        }
+        return bol
+    }
 }
